@@ -25,7 +25,7 @@ const EmployeePanel = () => {
 
   const getApi = () =>
     axios.create({
-      baseURL: 'http://localhost:5000/api/employee',
+      baseURL: 'https://attendenceupdaterevercedbaceknd.onrender.com/api/employee',
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -36,7 +36,7 @@ const EmployeePanel = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/employee/login', { email, password });
+      const res = await axios.post('https://attendenceupdaterevercedbaceknd.onrender.com/api/employee/login', { email, password });
       const t = res.data.token;
       localStorage.setItem('employeeToken', t);
       setToken(t);
