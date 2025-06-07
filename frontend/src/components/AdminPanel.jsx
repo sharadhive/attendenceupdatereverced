@@ -41,7 +41,7 @@ function AdminPanel() {
 
   const login = async () => {
     try {
-      const res = await axios.post('https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/login', {
+      const res = await axios.post('https://attendenceupdate01-readded.onrender.com/api/admin/login', {
         name: branchName,
         password,
       });
@@ -67,7 +67,7 @@ function AdminPanel() {
 
   const fetchEmployees = async (branchNameToUse, tokenToUse) => {
     try {
-      const res = await axios.get(`https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/employees/${branchNameToUse}`, {
+      const res = await axios.get(`https://attendenceupdate01-readded.onrender.com/api/admin/employees/${branchNameToUse}`, {
         headers: { Authorization: `Bearer ${tokenToUse}` },
       });
       setEmployees(res.data);
@@ -78,7 +78,7 @@ function AdminPanel() {
 
   const createBranch = async () => {
     try {
-      await axios.post('https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/register-branch', {
+      await axios.post('https://attendenceupdate01-readded.onrender.com/api/admin/register-branch', {
         branchName: newBranchName,
         password: newBranchPassword,
       }, {
@@ -94,7 +94,7 @@ function AdminPanel() {
 
   const createEmployee = async () => {
     try {
-      await axios.post('https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/create-employee', {
+      await axios.post('https://attendenceupdate01-readded.onrender.com/api/admin/create-employee', {
         email: newEmpEmail,
         password: newEmpPassword,
         branch: branchName,
@@ -116,7 +116,7 @@ function AdminPanel() {
     if (!newId) return;
 
     try {
-      const res = await axios.get(`https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/attendance/${empId}`, {
+      const res = await axios.get(`https://attendenceupdate01-readded.onrender.com/api/admin/attendance/${empId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSelectedEmployeeAttendance(prev => ({ ...prev, [empId]: res.data }));
@@ -134,7 +134,7 @@ function AdminPanel() {
 
   const updateAttendance = async (empId, recordId, status, remarks) => {
     try {
-      await axios.put(`https://attendenceupdaterevercedbaceknd.onrender.com/api/admin/attendance/${recordId}`, {
+      await axios.put(`https://attendenceupdate01-readded.onrender.com/api/admin/attendance/${recordId}`, {
         status,
         remarks,
       }, {
